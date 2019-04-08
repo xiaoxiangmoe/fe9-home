@@ -3,25 +3,25 @@ import membersData from './members.json';
 
 const membersTree = {
   name: '成员',
-  url: 'https://frontend9.com/',
-  value: 'https://frontend9.com/',
+  login: 'frontend9',
+  value: 'frontend9',
   children: arrayToTree(
     membersData.map(
-      ([nickname, url, number, parentNick, joinDate, city, company]) => ({
+      ([id, login, nickname, parentId, joinDate, city, company]) => ({
+        id,
         nickname,
-        url,
-        number,
-        parentNick,
+        login,
+        parentId: parentId === '00000' ? null : parentId,
         joinDate,
         city,
         company,
-        name: nickname + '(' + number + ')',
-        value: url,
+        name: nickname + '(' + id + ')',
+        value: login,
       })
     ),
     {
-      parentProperty: 'parentNick',
-      customID: 'nickname',
+      parentProperty: 'parentId',
+      customID: 'id',
     }
   ),
 };

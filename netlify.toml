@@ -1,0 +1,5 @@
+[build]
+  command = "yarn run build"
+  publish = "build"
+[build.environment]
+  YARN_VERSION = "1.15.2"

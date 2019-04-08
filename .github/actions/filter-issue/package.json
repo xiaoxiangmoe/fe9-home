@@ -1,0 +1,14 @@
+{
+  "name": "filter-issue",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "./run.sh"
+  },
+  "dependencies": {
+    "actions-toolkit": "^2.0.0",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.4.2"
+  }
+}

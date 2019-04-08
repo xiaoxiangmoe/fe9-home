@@ -15,13 +15,7 @@ const MemberList: React.FC = () => {
      *
      * {@link https://reactjs.org/docs/hooks-reference.html#useeffect | Hooks API Reference useEffect }
      */
-    if (chartRef.current === null) {
-      // React 可以保证这里不是 null
-      throw new Error(
-        'useEffect fire before the render committed, This may be a bug in React implementation.'
-      );
-    }
-    const myChart = echarts.init(chartRef.current);
+    const myChart = echarts.init(chartRef.current!);
 
     myChart.setOption({
       tooltip: {
@@ -72,7 +66,10 @@ const MemberList: React.FC = () => {
     };
     myChart.on('click', (params: ClickParams) => {
       console.log(params);
-      window.open(params.data.url);
+      window.open(
+        'https://github.com/frontend9/fe9-library/issues/created_by/' +
+          params.data.login
+      );
     });
   }, []);
 
